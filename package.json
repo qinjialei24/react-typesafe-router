@@ -16,7 +16,10 @@
   },
   "scripts": {
     "build": "vite build",
-    "test": "vitest"
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "release": "node scripts/release.js",
+    "bump": "node scripts/bump.js"
   },
   "keywords": [
     "react",
