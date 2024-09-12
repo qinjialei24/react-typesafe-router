@@ -6,6 +6,7 @@ import {
   useTypesafeQuery,
 } from "react-typesafe-router";
 function Foo() {
+  //you will get type -> const navigateToFoo: (query: {name: string; age?: number; }) => void
   const navigateToBar = useTypesafeNavigate(barTypesafeRoute);
   return (
     <div>
@@ -14,9 +15,10 @@ function Foo() {
   );
 }
 function Bar() {
+  //you will get type -> barQuery: { name: string; age?: number; }
   const barQuery = useTypesafeQuery(barTypesafeRoute);
+  //you will get type -> const navigateToFoo: (query: {name: string; age?: number; }) => void
   const navigateToFoo = useTypesafeNavigate(fooTypesafeRoute);
-
   return (
     <div>
       <h3>name: {barQuery.name}</h3>
@@ -33,4 +35,8 @@ const fooTypesafeRoute = createTypesafeRoute<{ name: string; age?: number }>({
   path: "/foo",
   element: <Foo />,
 });
-const router = createBrowserRouter([fooTypesafeRoute, barTypesafeRoute]);
+const router = createBrowserRouter([
+  { path: "/", element: <div>Hello world</div> },
+  fooTypesafeRoute,
+  barTypesafeRoute,
+]);
