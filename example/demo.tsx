@@ -13,7 +13,6 @@ function Foo() {
     </div>
   );
 }
-
 function Bar() {
   const barQuery = useTypesafeQuery(barTypesafeRoute);
   const navigateToFoo = useTypesafeNavigate(fooTypesafeRoute);
@@ -26,15 +25,12 @@ function Bar() {
     </div>
   );
 }
-
 const barTypesafeRoute = createTypesafeRoute<{ name: string; age?: number }>({
   path: "/bar",
   element: <Bar />,
 });
-
 const fooTypesafeRoute = createTypesafeRoute<{ name: string; age?: number }>({
   path: "/foo",
   element: <Foo />,
 });
-
 const router = createBrowserRouter([fooTypesafeRoute, barTypesafeRoute]);
