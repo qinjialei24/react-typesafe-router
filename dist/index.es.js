@@ -1,4 +1,7 @@
 import { useNavigate as u, useSearchParams as s } from "react-router-dom";
+function o(e) {
+  return Object.entries(e).map(([r, t]) => `${r}=${t}`).join("&");
+}
 function i(e) {
   const r = u();
   return (t) => {
@@ -16,9 +19,6 @@ function p(e) {
     ...e,
     _query: {}
   };
-}
-function o(e) {
-  return Object.entries(e).map(([r, t]) => `${r}=${t}`).join("&");
 }
 export {
   p as createTypesafeRoute,

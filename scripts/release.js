@@ -39,6 +39,16 @@ function publishToNpm() {
   exec('npm publish');
 }
 
+function checkWorkingDirectory() {
+  try {
+    const status = execSync('git status --porcelain').toString();
+    return status === '';
+  } catch (error) {
+    console.error('Failed to check working directory:', error.message);
+    process.exit(1);
+  }
+}
+
 function release(type) {
   try {
     // 检查工作目录
