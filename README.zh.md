@@ -1,5 +1,3 @@
-# react-typesafe-router
-
 [English](README.md) | [中文](README.zh.md)
 
 # react-typesafe-router
@@ -86,5 +84,3 @@ function Bar() {
 
 现在，您可以获取类型安全的路由查询数据！
 ![img_1.png](https://raw.githubusercontent.com/qinjialei24/react-typesafe-router/main/assets/img_1.png)
-
-
