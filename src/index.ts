@@ -1,12 +1,13 @@
 import {ReactNode,} from "react";
 import {useNavigate, useSearchParams} from "react-router-dom";
+import { queryObjectToString } from "./utils";
 
 type TypesafeRouteConfig = {
     path: string;
     element: ReactNode | null;
 };
 
-type QueryObject = Record<string, string | number>;
+export type QueryObject = Record<string, string | number>;
 
 type TypesafeRoute<Query extends QueryObject> = {
     path: string;
@@ -44,8 +45,3 @@ export function createTypesafeRoute<T extends QueryObject>(
     };
 }
 
-function queryObjectToString(queryObject: QueryObject): string {
-    return Object.entries(queryObject)
-        .map(([key, value]) => `${key}=${value}`)
-        .join("&");
-}
