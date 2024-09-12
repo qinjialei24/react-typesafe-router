@@ -1,6 +1,6 @@
 {
   "name": "react-typesafe-router",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "The easiest way to define typesafe router in React.js.",
   "module": "./dist/index.es.js",
   "files": [
