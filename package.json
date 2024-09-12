@@ -2,14 +2,19 @@
   "name": "react-typesafe-router",
   "version": "0.2.0",
   "description": "The easiest way to define typesafe router in React.js.",
-  "module": "./dist/index.ts",
+  "module": "./dist/react-typesafe-router.es.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "exports": {
     ".": {
-      "import": "./dist/index.ts",
+      "import": "./dist/index.es.js",
       "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
+    "build": "vite build",
     "test": "vitest"
   },
   "keywords": [],
@@ -25,6 +30,14 @@
   "packageManager": "pnpm@8.9.0+sha256.8f5264ad1d100da11a6add6bb8a94c6f1e913f9e9261b2a551fabefad2ec0fec",
   "devDependencies": {
     "@testing-library/react-hooks": "^8.0.1",
+    "@vitejs/plugin-react": "^3.0.0",
+    "jsdom": "^25.0.0",
+    "typescript": "^5.6.2",
+    "vite": "^4.5.3",
+    "vite-plugin-dts": "^4.2.1",
     "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "@types/node": "^22.5.4"
   }
 }
