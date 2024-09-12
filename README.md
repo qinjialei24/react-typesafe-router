@@ -1,4 +1,4 @@
-# vue-typesafe-router
+# react-typesafe-router
 
 The easiest way to define full typesafe router in React.js.
 
