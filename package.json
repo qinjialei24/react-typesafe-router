@@ -2,7 +2,13 @@
   "name": "react-typesafe-router",
   "version": "0.2.0",
   "description": "The easiest way to define typesafe router in React.js.",
-  "main": "index.ts",
+  "module": "./dist/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.ts",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
