@@ -4,7 +4,7 @@
 
 The easiest way to define full typesafe router in React.js.
 
-![1726114162133](image/README.zh/1726114162133.png)
+![1726114162133](https://raw.githubusercontent.com/qinjialei24/react-typesafe-router/main/assets/react-typesafe-router.png)
 
 ## Usage
 

@@ -4,7 +4,7 @@
 
 在 React.js 中定义完全类型安全的路由最简单的方式。
 
-![1726114162133](image/README.zh/1726114162133.png)
+![1726114162133](https://raw.githubusercontent.com/qinjialei24/react-typesafe-router/main/assets/react-typesafe-router.png)
 
 ## 使用方法
 
