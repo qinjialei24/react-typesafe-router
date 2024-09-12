@@ -10,17 +10,21 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "keywords": [],
   "peerDependencies": {
-    "react": "^18.3.1",
-    "react-router-dom": "^6.26.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "react-router-dom": "^6.26.1",
     "typescript": "^5.5.3"
   },
   "author": "qinjialei",
   "license": "MIT",
-  "packageManager": "pnpm@8.9.0+sha256.8f5264ad1d100da11a6add6bb8a94c6f1e913f9e9261b2a551fabefad2ec0fec"
+  "packageManager": "pnpm@8.9.0+sha256.8f5264ad1d100da11a6add6bb8a94c6f1e913f9e9261b2a551fabefad2ec0fec",
+  "devDependencies": {
+    "@testing-library/react-hooks": "^8.0.1",
+    "vitest": "^2.0.5"
+  }
 }
