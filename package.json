@@ -1,6 +1,6 @@
 {
   "name": "react-typesafe-router",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "The easiest way to define typesafe router in React.js.",
   "module": "./dist/react-typesafe-router.es.js",
   "files": [
@@ -17,7 +17,15 @@
     "build": "vite build",
     "test": "vitest"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "typescript",
+    "router",
+    "typesafe",
+    "react-router",
+    "react-router-dom",
+    "react-typesafe-router"
+  ],
   "peerDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
