@@ -2,7 +2,7 @@
 
 # react-typesafe-router
 
-The easiest way to define full typesafe router in React.js.
+The easiest way to define full typesafe router in React.js. just 3 api you need to use. and the vue3 version is also available here (https://github.com/qinjialei24/vue-typesafe-router).
 
 ![1726114162133](https://raw.githubusercontent.com/qinjialei24/react-typesafe-router/main/assets/react-typesafe-router.png)
 

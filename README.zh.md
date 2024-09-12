@@ -2,7 +2,7 @@
 
 # react-typesafe-router
 
-在 React.js 中定义完全类型安全的路由最简单的方式。
+在 React.js 中定义完全类型安全的路由最简单的方式，你只需要使用 3 个 api。Vue3 版本在这里 (https://github.com/qinjialei24/vue-typesafe-router).
 
 ![1726114162133](https://raw.githubusercontent.com/qinjialei24/react-typesafe-router/main/assets/react-typesafe-router.png)
 
