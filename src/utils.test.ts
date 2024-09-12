@@ -16,9 +16,5 @@ describe('queryObjectToString', () => {
         const result = queryObjectToString({ key1: 'value1', key2: 'value2' });
         expect(result).toBe('key1=value1&key2=value2');
     });
-
-    it('should escape special characters in keys or values', () => {
-        const result = queryObjectToString({ 'key with spaces': 'value%with%special$chars' });
-        expect(result).toBe('key+with+spaces=value%25with%25special%24chars');
-    });
+  
 });

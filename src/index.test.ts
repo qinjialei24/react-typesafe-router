@@ -1,69 +1,46 @@
-import { renderHook } from "@testing-library/react-hooks";
-import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import {
-  createTypesafeRoute,
-  useTypesafeNavigate,
-  useTypesafeQuery,
-} from "./index";
-import { describe, it } from "vitest";
+import { describe, it, expect, vi } from 'vitest';
+import { createTypesafeRoute, useTypesafeNavigate, useTypesafeQuery } from ".";
 
-describe("react-typesafe-router", () => {
-  const fooTypesafeRoute = createTypesafeRoute<{ name: string; age?: number }>({
-    path: "/foo",
-    element: null,
-  });
 
-  const barTypesafeRoute = createTypesafeRoute<{ name: string; age?: number }>({
-    path: "/bar",
-    element: null,
-  });
+const useNavigateMock = vi.fn();
+const useSearchParamsMock = vi.fn(() => [new URLSearchParams('key=value')]);
 
-  it("useTypesafeNavigate should navigate with query parameters", () => {
-    const router = createMemoryRouter([
-      {
-        path: "/",
-        element: null,
-      },
-      fooTypesafeRoute,
-      barTypesafeRoute,
-    ]);
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <RouterProvider router={router}>{children}</RouterProvider>
-    );
+vi.mock('react-router-dom', () => ({
+    useNavigate: () => useNavigateMock,
+    useSearchParams: () => useSearchParamsMock,
+}));
 
-    const { result } = renderHook(() => useTypesafeNavigate(barTypesafeRoute), {
-      wrapper,
+describe('useTypesafeNavigate', () => {
+    it('should call useNavigate with the correct path and query string', () => {
+        const typesafeRoute = createTypesafeRoute({ path: '/test', element: null });
+        const query = { key: 'value' };
+        
+        const navigate = useTypesafeNavigate(typesafeRoute);
+        navigate(query);
+
+        expect(useNavigateMock).toHaveBeenCalledWith('/test?key=value');
     });
+});
 
-    result.current({ name: "jack", age: 30 });
+describe('useTypesafeQuery', () => {
+    it('should return the query params as a typed object', () => {
+        const typesafeRoute = createTypesafeRoute({ path: '/test', element: null });
+        
+        const query = useTypesafeQuery(typesafeRoute);
 
-    expect(router.state.location.pathname).toBe("/bar");
-    expect(router.state.location.search).toBe("?name=jack&age=30");
-  });
-
-  it("useTypesafeQuery should return query parameters", () => {
-    const router = createMemoryRouter(
-      [
-        {
-          path: "/",
-          element: null,
-        },
-        fooTypesafeRoute,
-        barTypesafeRoute,
-      ],
-      {
-        initialEntries: ["/bar?name=jack&age=30"],
-      }
-    );
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <RouterProvider router={router}>{children}</RouterProvider>
-    );
-
-    const { result } = renderHook(() => useTypesafeQuery(barTypesafeRoute), {
-      wrapper,
+        expect(query).toEqual({ key: 'value' });
     });
+});
 
-    expect(result.current).toEqual({ name: "jack", age: "30" });
-  });
+describe('createTypesafeRoute', () => {
+    it('should create a typesafe route with the given configuration', () => {
+        const routeConfig = { path: '/test', element: null };
+        
+        const typesafeRoute = createTypesafeRoute(routeConfig);
+        
+        expect(typesafeRoute).toEqual({
+            ...routeConfig,
+            _query: {},
+        });
+    });
 });

@@ -2,7 +2,7 @@
   "name": "react-typesafe-router",
   "version": "0.2.4",
   "description": "The easiest way to define typesafe router in React.js.",
-  "module": "./dist/react-typesafe-router.es.js",
+  "module": "./dist/index.es.js",
   "files": [
     "dist",
     "README.md",
