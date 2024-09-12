@@ -1,28 +1,38 @@
 name: Run Tests
-
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    push:
+      branches: [main]
+    pull_request:
+      branches: [main]
+    release:
+      types: [created]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run tests
-        run: pnpm test
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: pnpm/action-setup@v2
+          with:
+            version: 8
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+            cache: 'pnpm'
+        - run: pnpm install
+        - run: pnpm test
+  
+    build:
+      needs: test
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: pnpm/action-setup@v2
+          with:
+            version: 8
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+            cache: 'pnpm'
+        - run: pnpm install
+        - run: pnpm build
