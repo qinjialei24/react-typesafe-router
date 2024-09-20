@@ -1,0 +1,19 @@
+{
+  "name": "@react-typesafe-router/playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test:ci": "vitest run",
+    "release": "node scripts/release.js",
+    "bump": "node scripts/bump.js"
+  },
+  "dependencies": {
+    "react-typesafe-router": "workspace:*"
+  },
+  "packageManager": "pnpm@8.9.0+sha256.8f5264ad1d100da11a6add6bb8a94c6f1e913f9e9261b2a551fabefad2ec0fec"
+}
